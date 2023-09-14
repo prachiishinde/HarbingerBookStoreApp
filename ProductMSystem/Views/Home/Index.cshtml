@@ -1,0 +1,140 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Harbinger Book Store</title>
+        <link rel="stylesheet" href="~/css/Swipper.css" asp-append-version="true" />
+
+    </head>
+    <body>
+        <div class="text-center" style="margin-top:100px">
+            <p class="display-4">Welcome To Harbinger Book Store</p>
+        </div>
+        <section class="home" id="home" style="padding: 5rem 9%;">
+            <div class="row">
+
+                <div class="content ">
+                    <h3>Upto 20% OFF</h3>
+                    <p class="quote">Books are Uniquely Portable Magic...</p>
+
+                </div>
+
+                <div class="swiper books-slider">
+                    <div class="swiper-wrapper">
+                        <a href="#" class="swiper-slide"><img src="~/image/book1.png" alt=" "></a>
+                        <a href="#" class="swiper-slide"><img src="~/image/book2.png" alt=" "></a>
+                        <a href="#" class="swiper-slide"><img src="~/image/book3.png" alt=" "></a>
+                        <a href="#" class="swiper-slide"><img src="~/image/book4.png" alt=" "></a>
+                        <a href="#" class="swiper-slide"><img src="~/image/book5.png" alt=" "></a>
+                        <a href="#" class="swiper-slide"><img src="~/image/book12.png" alt=" "></a>
+                        <a href="#" class="swiper-slide"><img src="~/image/book7.png" alt=" "></a>
+                        <a href="#" class="swiper-slide"><img src="~/image/book8.png" alt=" "></a>
+                        <a href="#" class="swiper-slide"><img src="~/image/book9.png" alt=" "></a>
+                        <a href="#" class="swiper-slide"><img src="~/image/book11.png" alt=" "></a>
+                        <a href="#" class="swiper-slide"><img src="~/image/book10.png" alt=" "></a>
+
+                    </div>
+                    <img src="~/image/shelf-png-clipart-png-mart (2).png" class="stand" alt="">
+                </div>
+
+            </div>
+        </section>
+        <script src="~/js/swiper.js" asp-append-version="true"></script>
+
+        <script>
+            var swiper = new Swiper(".books-slider", {
+                loop: true,
+                centeredSlides: true,
+                autoplay: {
+                    delay: 1000,
+                    disabledOnInteraction: false,
+                },
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    },
+                },
+            });
+        </script>
+
+        <style>
+            .home {
+                background-size: cover;
+                background-position: center;
+            }
+
+            .home .row {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 1.5rem;
+            }
+
+            .home .row .content {
+                flex: 1 1 20rem;
+            }
+
+            .home .row .books-slider {
+                flex: 1 1 8rem;
+                text-align: center;
+                margin-top: -5rem;
+                margin-right: -9rem; 
+                padding: 0px;
+            }
+
+            .home .row .books-slider a img {
+                height: 15rem;
+            }
+
+            .home .row .books-slider a:hover img {
+                transform: scale(.9);
+            }
+
+            .home .row .books-slider .stand {
+                width: 100%;
+                height: 130px;
+                padding: 0px;
+                margin: 0px;
+            }
+
+            .home .row .content h3 {
+                color: var(--black);
+                font-size: 4.2rem;
+            }
+
+            .home .row .content p {
+                color: var(--light-color);
+                font-size: 1.2rem;
+                line-height: 2;
+                padding: 1rem 0;
+            }
+
+            .swiper-wrapper {
+                top: 45px;
+            }
+
+            .quote {
+                font-size: 40px;
+                padding: 8px;
+                margin: 2px;
+                margin-top: -2%;
+                border-bottom: 1px solid yellow;
+                float: left;
+                font-family: cursive;
+            }
+        </style>
+
+    </body>
+</html>
+

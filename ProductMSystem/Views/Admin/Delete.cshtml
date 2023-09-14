@@ -1,0 +1,54 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Product
+
+<style>
+    .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 70vh;
+    }
+</style>
+
+<div class="main" style="margin-top:100px">
+    <div class="card border-dark p-3" style="width:40%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+        <div class="row pb-2 text-center">
+            <h2 class="text-primary text-center">
+                Delete Book
+            </h2>
+            <hr />
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-9">
+                <div class="text-white">
+                    <div class="card-body">
+                        <h6 class="card-title mt-3 mb-4 text-center"><strong>Title:</strong> @Model.Title</h6>
+                        <h6 class="card-title mt-3 mb-4 text-center"><strong>Author:</strong> @Model.Author</h6>
+                        <h6 class="card-title mt-3 mb-4 text-center"><strong>Year:</strong> @Model.Year</h6>
+                        <h6 class="card-title mt-3 mb-4 text-center"><strong>Description:</strong> @Model.Description</h6>
+                        <h6 class="card-title mt-3 mb-4 text-center"><strong>ISBN:</strong> @Model.ISBN</h6>
+                    </div>
+                </div>
+                <div class="text-center mt-3 d-flex justify-content-between mb-2 d-block mx-auto">
+                    <a asp-controller="Admin" asp-action="Index" class="btn btn-secondary" style="width: 150px;">
+                        Back to List
+                    </a>
+                    <form method="post" asp-controller="Admin" asp-action="Delete">
+                        <input type="hidden" asp-for="ID" />
+                        <button type="submit" class="btn btn-warning " style="width: 150px;">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+}

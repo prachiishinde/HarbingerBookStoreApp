@@ -1,0 +1,27 @@
+﻿@model Microsoft.AspNetCore.Identity.IdentityUser
+<div class="container" style="margin-top:250px;">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h2 class="text-primary">Delete User</h2>
+                </div>
+                <div class="card-body text-white" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                    <p class="card-text">Are you sure you want to delete the user with the Email <b>@Model.Email</b>?</p>
+                    <div class="text-center mt-4 d-flex justify-content-between">
+
+                        <div class="col-sm-3 text-center mt-2">
+                            <a asp-controller="SuperAdmin" asp-action="UserDashboard" class="btn btn-secondary ml-1">Cancel</a>
+                        </div>
+                        <div class="col-sm-3 text-center mt-2">
+                            <form asp-controller="SuperAdmin" asp-action="DeleteUserConfirmed" asp-route-id="@Model.Id" method="post">
+                                <button type="submit" class="btn btn-warning">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

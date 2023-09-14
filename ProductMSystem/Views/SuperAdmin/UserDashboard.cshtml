@@ -1,0 +1,62 @@
+﻿@model IEnumerable<IdentityUser>
+@using Microsoft.AspNetCore.Identity;
+
+<div class="container" style="margin-top:100px;">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary" style="margin-left:62px;">User List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="SuperAdmin" asp-action="CreateUser" class="btn btn-primary" style="margin-right:65px;">
+                <i class="bi bi-plus-circle"></i> &nbsp; Add New User
+            </a>
+        </div>
+    </div>
+    <br /><br />
+
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <table class="table table-bordered table-striped" aria-describedby="userlist" style="width: 90%">
+            <thead class="text-center">
+                <tr>
+                    <th style="color:#f6f6f6">
+                        Email
+                    </th>
+
+                    <th style="color:#f6f6f6">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td style="width:50%" class="align-middle text-white">
+                            @user.Email
+                        </td>
+
+                        <td>
+                            <div class="w-20 btn-group" role="group">
+                                <a asp-controller="SuperAdmin" asp-action="EditUser" asp-route-id="@user.Id"
+                                   class="btn btn-success mx-2"> <i class="bi bi-pencil-square"></i></a>
+
+                                <a asp-controller="SuperAdmin" asp-action="DeleteUser" asp-route-id="@user.Id"
+                                   class="btn btn-warning mx-2"> <i class="bi bi-trash-fill"></i></a>
+
+                                <form asp-controller="SuperAdmin" asp-action="PromoteToAdmin" method="post">
+                                    <input type="hidden" name="userId" value="@user.Id" />
+                                    <button type="submit" class="btn btn-danger mx-2">
+                                        Make Admin
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+    <div style="margin-bottom: 60px;"></div>
+</div>
+

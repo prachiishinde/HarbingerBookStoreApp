@@ -1,0 +1,53 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Product
+
+<form method="post" asp-action="Edit" style="margin-top:115px; display: flex;  justify-content: center; align-items: center; max-height: 70vh;">
+	<div class="card border-dark p-3" style="width:35%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+		<div class="row pb-2">
+			<h2 class="text-primary text-center">Edit Book</h2>
+			<hr />
+		</div>
+		<div class="mb-3">
+			<label asp-for="Title"></label>
+			<input asp-for="Title" class="form-control" />
+			<span asp-validation-for="Title" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="Author"></label>
+			<input asp-for="Author" class="form-control" />
+			<span asp-validation-for="Author" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="Year"></label>
+			<input asp-for="Year" class="form-control" />
+			<span asp-validation-for="Year" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="Description"></label>
+			<input asp-for="Description" class="form-control" />
+			<span asp-validation-for="Description" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="ISBN"></label>
+			<input asp-for="ISBN" class="form-control" />
+			<span asp-validation-for="ISBN" class="text-danger"></span>
+		</div>
+		<div class="text-center mt-3 d-flex justify-content-between">
+			<a asp-controller="Admin" asp-action="Index" class="btn btn-secondary" style="width:150px">
+				Back to List
+			</a>
+			<button type="submit" class="btn btn-primary" style="width:150px">Update</button>			
+		</div>
+		
+	</div>
+</form>
+
+@section Scripts{
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+}

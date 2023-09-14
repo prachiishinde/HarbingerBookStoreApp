@@ -1,0 +1,33 @@
+﻿@model Microsoft.AspNetCore.Identity.IdentityUser
+
+<div class="container" style="margin-top:250px; width:80%;">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center text-primary">Edit User</h2>
+                </div>
+                <div class="card-body text-white" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                    <form asp-controller="SuperAdmin" asp-action="EditUser" method="post">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input asp-for="Email" class="form-control" id="email" />
+                        </div>
+                        <div class="text-center mt-4 d-flex justify-content-between">
+                            <a asp-controller="SuperAdmin" asp-action="UserDashboard" class="btn btn-secondary custom-btn" style="width: 130px">Cancel</a>
+                            <button type="submit" class="btn btn-primary" style="width: 130px">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+
+                <style>
+                    .custom-btn {
+                        margin-left: 20px;
+                        margin-right: 90px; /* Adjust the margin value as needed */
+                    }
+                </style>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    .col-12 {
+        margin-top:50px;
+    }
+    .card {
+        width: 270px; /* Adjust the width as needed */
+
+    }
+
+    .btn-primary {
+        display: flex;
+        justify-content: center;
+        background-color: #c4a74d;
+    }
+
+    .img-fixed {
+        width: 100%; /* Set the desired width */
+        height: 200px; /* Set the desired height */
+        object-fit: cover; /* Maintain aspect ratio and cover container */
+    }
+
+</style>
+
+<div class="container" style="margin-top:30px">
+    <div class="row pt-3">
+        <div class="col-12">
+            <h2 class="text-primary">Books List</h2>
+        </div>
+    </div>
+    <br /><br />
+
+    <div class="row" style="height: 50%;">
+        @foreach (var obj in Model)
+        {
+            <div class="col-md-3 mb-3">
+                <div class="card border-dark text-white" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                    @{
+                        var bookImages = new List<string>
+                        {
+                        "https://t3.ftcdn.net/jpg/01/02/73/06/240_F_102730607_L8WsULsktpQsqxdpYXTYypMhexpSW17h.jpg",
+                        "https://t3.ftcdn.net/jpg/01/17/75/02/240_F_117750219_dEXN5T0ENx62pMVgADlHKDSy334VpKPJ.jpg",
+                        "https://t3.ftcdn.net/jpg/05/44/81/82/240_F_544818251_eOMYtaOeTnhHFl6h3ovgaTtSlCaqd2em.jpg",
+                        "https://t4.ftcdn.net/jpg/06/19/20/11/240_F_619201180_gv6whu1MKnSlhePTJ4o5kuFgRZ5j80vc.jpg",
+                        "https://t3.ftcdn.net/jpg/06/06/78/10/240_F_606781000_StdHxhe8JD8XT2ci1SFPXLxRnxe6yivt.jpg",
+                        "https://images.all-free-download.com/images/graphicwebp/book_cover_template_modern_3d_geometry_shapes_teared_paper_decor_6927659.webp",
+                        "https://images.all-free-download.com/images/graphiclarge/world_wildlife_book_cover_template_jungle_scene_species_silhouette_decor_6922328.jpg",
+                        "https://images.all-free-download.com/images/graphiclarge/world_wildlife_book_cover_template_animals_species_globe_sketch_6922325.jpg",
+                        "https://images.all-free-download.com/images/graphicwebp/real_estate_book_cover_template_modern_city_scene_sketch_6922095.webp",
+                        "https://images.all-free-download.com/images/graphicwebp/sloth_book_cover_template_cute_handdrawn_cartoon_sketch_6849512.webp",
+                        "https://images.all-free-download.com/images/graphicwebp/book_cover_template_wildlife_elements_sketch_colorful_classic_6849516.webp",
+                        "https://images.all-free-download.com/images/graphicwebp/animal_book_cover_template_cute_baby_deer_sketch_6849511.webp",
+                        "https://images.all-free-download.com/images/graphiclarge/menu_card_cover_template_elegant_flat_leaves_chair_table_isolation_sketch_6925558.jpg"
+                        // Add more image URLs here
+                        };
+                        var random = new Random();
+                        var randomImageUrl = bookImages[random.Next(bookImages.Count)];
+                    }
+
+                    <img src="@randomImageUrl" class="card-img-top img-fixed" alt="Book Image">
+
+                    <div class="card-body mt-2">
+                        <h6 class="card-title mt-2 mb-3 text-center"><strong>Book Title:</strong> @obj.Title</h6>
+                        <h6 class="card-title mt-2 mb-3 text-center"><strong>Book Author:</strong> @obj.Author</h6>
+                        <h6 class="card-title mt-2 mb-3 text-center"><strong>Cost:</strong> 120$</h6>
+                        <div class="mt-2 text-center">
+                            <a asp-controller="User" asp-action="View" asp-route-id="@obj.ID" class="btn btn-primary">
+                                View
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div style="margin-bottom: 60px;"></div>
+</div>

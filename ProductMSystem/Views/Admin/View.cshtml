@@ -1,0 +1,39 @@
+﻿@model Product
+
+<style>
+    .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 70vh;
+        
+    }
+</style>
+
+<div class="main" style="margin-top:120px; margin-bottom: 90px;">
+    <div class="card border-dark p-3" style="width:40%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+            <div class="row pb-2 text-center">
+                <h2 class="text-primary text-center">
+                    Book Details
+                </h2>
+                <hr />
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-9">
+                    <div class="text-white">
+                        <div class="card-body">
+                            <h6 class="card-title mt-3 mb-4 text-center"><strong>Title:</strong> @Model.Title</h6>
+                            <h6 class="card-title mt-3 mb-4 text-center"><strong>Author:</strong> @Model.Author</h6>
+                            <h6 class="card-title mt-3 mb-4 text-center"><strong>Year:</strong> @Model.Year</h6>
+                            <h6 class="card-title mt-3 mb-4 text-center"><strong>Description:</strong> @Model.Description</h6>
+                            <h6 class="card-title mt-3 mb-4 text-center"><strong>ISBN:</strong> @Model.ISBN</h6>
+                        </div>
+                    </div>
+                    <a asp-controller="Admin" asp-action="Index" class="btn btn-secondary mt-2 mb-2 d-block mx-auto" style="width: 150px;">
+                        Back to List
+                    </a>
+                </div>
+            </div>
+        
+  </div>
+</div>

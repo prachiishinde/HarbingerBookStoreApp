@@ -1,0 +1,111 @@
+﻿
+@model ProductMSystem.Models.ViewModel.RegisterViewModel
+
+@{
+
+    ViewData["Title"] = "Register Page";
+
+}
+
+ 
+
+<style>
+
+    .card-header-white {
+
+        background-color: white;
+
+    }
+
+</style>
+
+ 
+
+<div class="container" style="margin-top:120px;">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-4">
+
+            <div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+
+                <div class="card-header text-center">
+
+                    <h2 class="text-primary">Register</h2>
+
+                </div>
+
+                <div class="card-body text-white">
+
+                    <form asp-action="Register" class="needs-validation" novalidate>
+
+                        <div class="mb-3">
+
+                            <label for="Name" class="form-label">Name</label>
+
+                            <input type="text" asp-for="Name" class="form-control" id="Name" required>
+
+                            <div class="invalid-feedback">
+
+                                Please provide a name.
+
+                            </div>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label for="Email" class="form-label">Email</label>
+
+                            <input type="email" asp-for="Email" class="form-control" id="Email" required>
+
+                            <div class="invalid-feedback">
+
+                                Please provide a valid email.
+
+                            </div>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label for="Password" class="form-label">Password</label>
+
+                            <input type="password" asp-for="Password" class="form-control" id="Password" required>
+
+                            <div class="invalid-feedback">
+
+                                Please provide a password.
+
+                            </div>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label for="ConfirmPassword" class="form-label">Confirm Password</label>
+
+                            <input type="password" asp-for="ConfirmPassword" class="form-control" id="ConfirmPassword" required>
+
+                            <div class="invalid-feedback">
+
+                                Please confirm your password.
+
+                            </div>
+
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Register</button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+

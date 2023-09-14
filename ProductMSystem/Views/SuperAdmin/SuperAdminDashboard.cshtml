@@ -1,0 +1,57 @@
+﻿@model IEnumerable<IdentityUser>
+@using Microsoft.AspNetCore.Identity;
+
+<div class="container" style="margin-top:100px;">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary" style="margin-left:62px;">Admin List</h2>
+        </div>
+        <div class="col-6 text-end" >
+            <a asp-controller="SuperAdmin" asp-action="CreateAdmin" class="btn btn-primary" style="margin-right:65px;">
+                <i class="bi bi-plus-circle"></i> &nbsp; Add New Admin
+            </a>
+        </div>
+    </div>
+    <br /><br />
+
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <table class="table table-bordered table-striped" aria-describedby="Adminlist" style="width: 90%">
+            <thead class="text-center">
+                <tr>
+                    <th style="color:#f6f6f6">
+                        Email
+                    </th>
+
+                    <th style="color:#f6f6f6">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                @foreach (var admin in Model)
+                {
+                    <tr>
+                        <td style="width:50%" class="align-middle text-white">
+                            @admin.Email
+                        </td>
+
+                        <td>
+                            <div class="w-20 btn-group" role="group">
+                                <a asp-controller="SuperAdmin" asp-action="EditAdmin" asp-route-id="@admin.Id"
+                                   class="btn btn-success mx-2"> <i class="bi bi-pencil-square"></i></a>
+                                <a asp-controller="SuperAdmin" asp-action="DeleteAdmin" asp-route-id="@admin.Id"
+                                   class="btn btn-warning mx-2"> <i class="bi bi-trash-fill"></i></a>
+                            </div>                          
+
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+   </div>
+    <div style="margin-bottom: 60px;"></div>
+</div>
+
+
